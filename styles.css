@@ -373,20 +373,6 @@ h1 {
   padding: 18px;
 }
 
-.criteria-card {
-  position: relative;
-  padding-top: 46px;
-}
-
-.card-number {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  color: var(--accent-strong);
-  font-size: 13px;
-  font-weight: 800;
-}
-
 .criteria-card h3,
 .recommendation-card h3,
 .guide-card h3 {
