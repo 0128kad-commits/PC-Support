@@ -52,6 +52,60 @@ const resultSets = {
       title: "あなたは多ボタン・作業効率タイプです",
       text: "選んだ条件から見ると、戻る、進む、ショートカットなどを使って作業を速くしたいタイプです。ボタン数と割り当て機能を確認します。"
     }
+  },
+  "monitor-light": {
+    "desk-light-basic": {
+      title: "あなたは標準バーライトタイプです",
+      text: "選んだ条件から見ると、まず失敗しにくい基本型が合いやすいです。非対称配光、対応モニター厚、明るさ調整を中心に確認します。"
+    },
+    "desk-light-remote": {
+      title: "あなたはリモコン・ダイヤル付きタイプです",
+      text: "選んだ条件から見ると、作業中に明るさや色を手元で変えたいタイプです。リモコンやダイヤルの置き場所、操作しやすさを確認します。"
+    },
+    "desk-light-wide": {
+      title: "あなたはワイド照射タイプです",
+      text: "選んだ条件から見ると、キーボードや資料まで広く照らしたいタイプです。ライトの長さ、照らせる幅、机の奥行きを確認します。"
+    },
+    "desk-light-auto": {
+      title: "あなたは自動調光・高機能タイプです",
+      text: "選んだ条件から見ると、調整の手間を減らして快適に使いたいタイプです。自動調光、色温度調整、反射しにくい配光を確認します。"
+    }
+  },
+  "laptop-stand": {
+    "stand-fixed": {
+      title: "あなたは据え置きアルミタイプです",
+      text: "選んだ条件から見ると、自宅や固定席で安定して使うタイプが合いやすいです。台座の広さ、耐荷重、滑り止めを中心に確認します。"
+    },
+    "stand-adjustable": {
+      title: "あなたは高さ・角度調整タイプです",
+      text: "選んだ条件から見ると、目線の高さをしっかり合わせたいタイプです。高く上げる場合は外部キーボードとマウスを前提に考えます。"
+    },
+    "stand-portable": {
+      title: "あなたは折りたたみ軽量タイプです",
+      text: "選んだ条件から見ると、外出先でも使いやすい携帯タイプが合いやすいです。重さ、収納サイズ、組み立てやすさを確認します。"
+    },
+    "stand-cooling": {
+      title: "あなたは放熱・冷却重視タイプです",
+      text: "選んだ条件から見ると、長時間作業や発熱対策を重視するタイプです。底面の通気、アルミ素材、ファンの有無を確認します。"
+    }
+  },
+  "monitor-arm": {
+    "arm-single": {
+      title: "あなたはシングル標準タイプです",
+      text: "選んだ条件から見ると、1画面をすっきり浮かせる標準タイプが合いやすいです。対応重量、VESA、机の厚みを確認します。"
+    },
+    "arm-dual": {
+      title: "あなたはデュアルモニタータイプです",
+      text: "選んだ条件から見ると、2画面を横並びで整えるタイプが合いやすいです。合計重量、横幅、机の固定条件を確認します。"
+    },
+    "arm-heavy": {
+      title: "あなたは高耐荷重タイプです",
+      text: "選んだ条件から見ると、大型・重めのモニターを安定して支えるタイプが合いやすいです。対応重量に余裕を持たせて選びます。"
+    },
+    "arm-wall": {
+      title: "あなたは壁際・省スペースタイプです",
+      text: "選んだ条件から見ると、机の奥行きや壁との距離を優先するタイプです。アームをたたんだ時の奥行きと可動範囲を確認します。"
+    }
   }
 };
 
@@ -137,6 +191,84 @@ function scoreTrackball(values) {
   return scores;
 }
 
+function scoreMonitorLight(values) {
+  const scores = {
+    "desk-light-basic": 0,
+    "desk-light-remote": 0,
+    "desk-light-wide": 0,
+    "desk-light-auto": 0
+  };
+
+  for (const value of values) {
+    if (value === "desk-work") {
+      scores["desk-light-basic"] += 1;
+      scores["desk-light-wide"] += 2;
+    }
+    if (value === "night") {
+      scores["desk-light-auto"] += 2;
+      scores["desk-light-remote"] += 1;
+    }
+    if (value === "standard-screen") scores["desk-light-basic"] += 2;
+    if (value === "thin-curve") scores["desk-light-auto"] += 2;
+    if (value === "simple-control") scores["desk-light-basic"] += 2;
+    if (value === "remote-control") scores["desk-light-remote"] += 3;
+    if (value === "basic") scores["desk-light-basic"] += 2;
+    if (value === "auto") scores["desk-light-auto"] += 3;
+  }
+
+  return scores;
+}
+
+function scoreLaptopStand(values) {
+  const scores = {
+    "stand-fixed": 0,
+    "stand-adjustable": 0,
+    "stand-portable": 0,
+    "stand-cooling": 0
+  };
+
+  for (const value of values) {
+    if (value === "fixed-desk") scores["stand-fixed"] += 2;
+    if (value === "carry-stand") scores["stand-portable"] += 3;
+    if (value === "external") scores["stand-adjustable"] += 2;
+    if (value === "built-in") {
+      scores["stand-fixed"] += 1;
+      scores["stand-portable"] += 1;
+    }
+    if (value === "height") scores["stand-adjustable"] += 3;
+    if (value === "stability") scores["stand-fixed"] += 3;
+    if (value === "normal") scores["stand-fixed"] += 1;
+    if (value === "hot") scores["stand-cooling"] += 3;
+  }
+
+  return scores;
+}
+
+function scoreMonitorArm(values) {
+  const scores = {
+    "arm-single": 0,
+    "arm-dual": 0,
+    "arm-heavy": 0,
+    "arm-wall": 0
+  };
+
+  for (const value of values) {
+    if (value === "single") scores["arm-single"] += 2;
+    if (value === "dual") scores["arm-dual"] += 3;
+    if (value === "standard-monitor") scores["arm-single"] += 2;
+    if (value === "heavy-monitor") scores["arm-heavy"] += 3;
+    if (value === "open-back") scores["arm-single"] += 1;
+    if (value === "wall-close") scores["arm-wall"] += 3;
+    if (value === "move-often") scores["arm-single"] += 1;
+    if (value === "stable-arm") {
+      scores["arm-heavy"] += 1;
+      scores["arm-wall"] += 1;
+    }
+  }
+
+  return scores;
+}
+
 function scoreDiagnosis(form, mode) {
   const values = new FormData(form);
   const selectedValues = Array.from(values.values());
@@ -144,6 +276,9 @@ function scoreDiagnosis(form, mode) {
 
   if (mode === "mobile-monitor") scores = scoreMobileMonitor(selectedValues);
   if (mode === "trackball") scores = scoreTrackball(selectedValues);
+  if (mode === "monitor-light") scores = scoreMonitorLight(selectedValues);
+  if (mode === "laptop-stand") scores = scoreLaptopStand(selectedValues);
+  if (mode === "monitor-arm") scores = scoreMonitorArm(selectedValues);
 
   return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
 }

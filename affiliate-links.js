@@ -48,5 +48,41 @@ window.HAKADORU_AFFILIATE_LINKS = {
   "trackball-compact": "",
 
   // トラックボール 多ボタン・作業効率
-  "trackball-buttons": ""
+  "trackball-buttons": "",
+
+  // モニターライト 標準バーライト
+  "monitor-light-basic": "",
+
+  // モニターライト リモコン・ダイヤル付き
+  "monitor-light-remote": "",
+
+  // モニターライト ワイド照射
+  "monitor-light-wide": "",
+
+  // モニターライト 自動調光・高機能
+  "monitor-light-auto": "",
+
+  // ノートPCスタンド 据え置きアルミ
+  "laptop-stand-fixed": "",
+
+  // ノートPCスタンド 高さ・角度調整
+  "laptop-stand-adjustable": "",
+
+  // ノートPCスタンド 折りたたみ軽量
+  "laptop-stand-portable": "",
+
+  // ノートPCスタンド 放熱・冷却重視
+  "laptop-stand-cooling": "",
+
+  // モニターアーム シングル標準
+  "monitor-arm-single": "",
+
+  // モニターアーム デュアル
+  "monitor-arm-dual": "",
+
+  // モニターアーム 高耐荷重
+  "monitor-arm-heavy": "",
+
+  // モニターアーム 壁際・省スペース
+  "monitor-arm-wall": ""
 };
