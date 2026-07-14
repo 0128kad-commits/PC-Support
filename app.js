@@ -1,39 +1,64 @@
-const resultData = {
-  compact: {
-    title: "あなたは軽量5-in-1タイプです",
-    text: "選んだ条件から見ると、持ち運びやすさと最低限の端子を優先するタイプです。HDMI、USB-A、USB-C給電があれば、出先でも自宅でも困りにくくなります。",
-    target: "#type-compact",
-    slot: "usb-c-hub-compact",
-    fallbackUrl: "https://search.rakuten.co.jp/search/mall/USB-C%E3%83%8F%E3%83%96+5-in-1+HDMI+PD/"
+const resultSets = {
+  "usb-c-hub": {
+    compact: {
+      title: "あなたは軽量5-in-1タイプです",
+      text: "選んだ条件から見ると、持ち運びやすさと最低限の端子を優先するタイプです。HDMI、USB-A、USB-C給電があれば、出先でも自宅でも困りにくくなります。"
+    },
+    lan: {
+      title: "あなたはLAN付き安定タイプです",
+      text: "選んだ条件から見ると、オンライン会議や大きめのファイル転送が多いタイプです。有線LAN、HDMI、USB-A、USB-C給電を備えた7-in-1前後を優先します。"
+    },
+    monitor: {
+      title: "あなたは4Kモニター重視タイプです",
+      text: "選んだ条件から見ると、外部モニターでの作業を優先するタイプです。4K画面を使うなら、HDMI 4K/60Hz対応の表記を最初に確認します。"
+    },
+    desk: {
+      title: "あなたは据え置き整理タイプです",
+      text: "選んだ条件から見ると、机に置いたまま使い、配線をまとめたいタイプです。ポート数、給電、LAN、放熱を優先します。"
+    }
   },
-  lan: {
-    title: "あなたはLAN付き安定タイプです",
-    text: "選んだ条件から見ると、オンライン会議や大きめのファイル転送が多いタイプです。有線LAN、HDMI、USB-A、USB-C給電を備えた7-in-1前後を優先します。",
-    target: "#type-lan",
-    slot: "usb-c-hub-lan",
-    fallbackUrl: "https://search.rakuten.co.jp/search/mall/USB-C%E3%83%8F%E3%83%96+LAN+HDMI+PD/"
+  "mobile-monitor": {
+    "monitor-light": {
+      title: "あなたは軽量モバイルタイプです",
+      text: "選んだ条件から見ると、外出先でも広げやすい軽量タイプが合いやすいです。14インチ前後、薄さ、重さ、カバー形状を優先します。"
+    },
+    "monitor-standard": {
+      title: "あなたは15.6インチ標準タイプです",
+      text: "選んだ条件から見ると、自宅や固定席で見やすさを優先するタイプです。15.6インチ前後のフルHDを軸にすると選びやすくなります。"
+    },
+    "monitor-usbc": {
+      title: "あなたはUSB-C一本接続タイプです",
+      text: "選んだ条件から見ると、配線を減らしてすぐ使えるタイプが合いやすいです。PC側のUSB-Cが映像出力に対応しているかを先に確認します。"
+    },
+    "monitor-game": {
+      title: "あなたはゲーム兼用タイプです",
+      text: "選んだ条件から見ると、仕事だけでなくゲーム機にも使えるタイプが合いやすいです。HDMI入力、電源の取り方、リフレッシュレートを確認します。"
+    }
   },
-  monitor: {
-    title: "あなたは4Kモニター重視タイプです",
-    text: "選んだ条件から見ると、外部モニターでの作業を優先するタイプです。4K画面を使うなら、HDMI 4K/60Hz対応の表記を最初に確認します。",
-    target: "#type-monitor",
-    slot: "usb-c-hub-monitor",
-    fallbackUrl: "https://search.rakuten.co.jp/search/mall/USB-C%E3%83%8F%E3%83%96+4K+60Hz+HDMI+PD/"
-  },
-  desk: {
-    title: "あなたは据え置き整理タイプです",
-    text: "選んだ条件から見ると、机に置いたまま使い、配線をまとめたいタイプです。ポート数、給電、LAN、放熱を優先します。",
-    target: "#type-desk",
-    slot: "usb-c-hub-dock",
-    fallbackUrl: "https://search.rakuten.co.jp/search/mall/USB-C%E3%83%89%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0%E3%82%B9%E3%83%86%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3+HDMI+LAN/"
+  "trackball": {
+    "trackball-thumb": {
+      title: "あなたは親指型トラックボールタイプです",
+      text: "選んだ条件から見ると、普通のマウスに近い感覚で始めやすいタイプです。初めてなら親指型、標準サイズ、無線対応を軸にすると選びやすくなります。"
+    },
+    "trackball-finger": {
+      title: "あなたは人差し指・中指型タイプです",
+      text: "選んだ条件から見ると、指先で細かく操作したいタイプです。慣れる時間は必要ですが、カーソル操作のしやすさを重視する人に向きます。"
+    },
+    "trackball-compact": {
+      title: "あなたは小型・省スペースタイプです",
+      text: "選んだ条件から見ると、机の狭さや持ち運びやすさを優先するタイプです。小型、軽量、無線対応を中心に確認します。"
+    },
+    "trackball-buttons": {
+      title: "あなたは多ボタン・作業効率タイプです",
+      text: "選んだ条件から見ると、戻る、進む、ショートカットなどを使って作業を速くしたいタイプです。ボタン数と割り当て機能を確認します。"
+    }
   }
 };
 
-function scoreDiagnosis(form) {
+function scoreUsbHub(values) {
   const scores = { compact: 0, lan: 0, monitor: 0, desk: 0 };
-  const values = new FormData(form);
 
-  for (const value of values.values()) {
+  for (const value of values) {
     if (value === "portable") scores.compact += 2;
     if (value === "home") scores.desk += 2;
     if (value === "lan") scores.lan += 2;
@@ -44,16 +69,92 @@ function scoreDiagnosis(form) {
     if (value === "few") scores.compact += 1;
   }
 
+  return scores;
+}
+
+function scoreMobileMonitor(values) {
+  const scores = {
+    "monitor-light": 0,
+    "monitor-standard": 0,
+    "monitor-usbc": 0,
+    "monitor-game": 0
+  };
+
+  for (const value of values) {
+    if (value === "carry") {
+      scores["monitor-light"] += 2;
+      scores["monitor-usbc"] += 1;
+    }
+    if (value === "home-monitor") scores["monitor-standard"] += 2;
+    if (value === "laptop") {
+      scores["monitor-standard"] += 1;
+      scores["monitor-usbc"] += 1;
+    }
+    if (value === "game") scores["monitor-game"] += 3;
+    if (value === "single-cable") {
+      scores["monitor-usbc"] += 3;
+      scores["monitor-light"] += 1;
+    }
+    if (value === "hdmi-ok") {
+      scores["monitor-standard"] += 1;
+      scores["monitor-game"] += 1;
+    }
+    if (value === "light") scores["monitor-light"] += 2;
+    if (value === "large") {
+      scores["monitor-standard"] += 2;
+      scores["monitor-game"] += 1;
+    }
+  }
+
+  return scores;
+}
+
+function scoreTrackball(values) {
+  const scores = {
+    "trackball-thumb": 0,
+    "trackball-finger": 0,
+    "trackball-compact": 0,
+    "trackball-buttons": 0
+  };
+
+  for (const value of values) {
+    if (value === "thumb") scores["trackball-thumb"] += 3;
+    if (value === "finger") scores["trackball-finger"] += 3;
+    if (value === "compact") scores["trackball-compact"] += 3;
+    if (value === "standard") {
+      scores["trackball-thumb"] += 1;
+      scores["trackball-finger"] += 1;
+    }
+    if (value === "wireless") {
+      scores["trackball-thumb"] += 1;
+      scores["trackball-compact"] += 1;
+    }
+    if (value === "wired") scores["trackball-finger"] += 1;
+    if (value === "easy") scores["trackball-thumb"] += 2;
+    if (value === "buttons") scores["trackball-buttons"] += 3;
+  }
+
+  return scores;
+}
+
+function scoreDiagnosis(form, mode) {
+  const values = new FormData(form);
+  const selectedValues = Array.from(values.values());
+  let scores = scoreUsbHub(selectedValues);
+
+  if (mode === "mobile-monitor") scores = scoreMobileMonitor(selectedValues);
+  if (mode === "trackball") scores = scoreTrackball(selectedValues);
+
   return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
 }
 
-function updateRecommendation(type) {
+function updateRecommendation(type, dataSet) {
   document.querySelectorAll("[data-recommendation-card]").forEach((card) => {
     card.classList.toggle("recommended", card.dataset.recommendationCard === type);
   });
 
   const recommendedArea = document.querySelector("[data-recommendation-result]");
-  const data = resultData[type];
+  const data = dataSet[type];
   if (!recommendedArea || !data) return;
 
   recommendedArea.innerHTML = `
@@ -62,17 +163,161 @@ function updateRecommendation(type) {
   `;
 }
 
+function getAffiliateHtml(value) {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed.startsWith("<") ? trimmed : "";
+  }
+
+  if (value && typeof value === "object" && typeof value.html === "string") {
+    return value.html.trim();
+  }
+
+  return "";
+}
+
+function getAffiliateUrl(value) {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed.startsWith("<") ? "" : trimmed;
+  }
+
+  if (value && typeof value === "object" && typeof value.url === "string") {
+    return value.url.trim();
+  }
+
+  return "";
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function getSafeUrl(value) {
+  const trimmed = value.trim();
+  return /^javascript:/i.test(trimmed) ? "" : trimmed;
+}
+
+function getRakutenThumbnailFallback(imageUrl) {
+  try {
+    const parsedUrl = new URL(imageUrl);
+    return getSafeUrl(parsedUrl.searchParams.get("pc") || "");
+  } catch (error) {
+    return "";
+  }
+}
+
+function attachAffiliateImageFallbacks(root) {
+  root.querySelectorAll("img[data-fallback-src]").forEach((image) => {
+    image.addEventListener("error", () => {
+      const fallbackSrc = image.getAttribute("data-fallback-src");
+      if (!fallbackSrc || image.src === fallbackSrc) return;
+
+      image.src = fallbackSrc;
+      image.removeAttribute("data-fallback-src");
+    }, { once: true });
+  });
+}
+
+function buildAffiliateCreative(html) {
+  const template = document.createElement("template");
+  template.innerHTML = html;
+
+  const anchors = Array.from(template.content.querySelectorAll("a[href]"));
+  const titleLink = anchors
+    .filter((anchor) => anchor.textContent.trim().length > 0)
+    .sort((a, b) => b.textContent.trim().length - a.textContent.trim().length)[0];
+  const firstLink = anchors[0];
+  const linkUrl = getSafeUrl((titleLink || firstLink)?.getAttribute("href") || "");
+  const productTitle = (titleLink?.textContent || "参考商品を見る").replace(/\s+/g, " ").trim();
+  const productImage = Array.from(template.content.querySelectorAll("img[src]"))
+    .find((image) => !image.getAttribute("src").includes("makelink/rl.svg"));
+  const imageUrl = getSafeUrl(productImage?.getAttribute("src") || "");
+  const fallbackImageUrl = imageUrl ? getRakutenThumbnailFallback(imageUrl) : "";
+  const priceMatch = template.content.textContent.replace(/\s+/g, " ").match(/価格：[^()]+(?:税込|円|送料無料)?/);
+  const priceText = priceMatch ? priceMatch[0].trim() : "";
+
+  if (!linkUrl) return "";
+
+  return `
+    <a class="affiliate-product" href="${escapeHtml(linkUrl)}" target="_blank" rel="sponsored nofollow noopener">
+      ${imageUrl ? `<span class="affiliate-image"><img src="${escapeHtml(imageUrl)}" ${fallbackImageUrl ? `data-fallback-src="${escapeHtml(fallbackImageUrl)}"` : ""} alt="" loading="lazy" decoding="async"></span>` : ""}
+      <span class="affiliate-copy">
+        <strong>${escapeHtml(productTitle)}</strong>
+        ${priceText ? `<span class="affiliate-price">${escapeHtml(priceText)}</span>` : ""}
+        <span class="affiliate-cta">楽天で見る</span>
+      </span>
+    </a>
+  `;
+}
+
+function sanitizeAffiliateHtml(html) {
+  const template = document.createElement("template");
+  template.innerHTML = html;
+
+  template.content.querySelectorAll("script, style, iframe, object, embed, form, input, button").forEach((node) => {
+    node.remove();
+  });
+
+  template.content.querySelectorAll("*").forEach((node) => {
+    Array.from(node.attributes).forEach((attribute) => {
+      const name = attribute.name.toLowerCase();
+      const value = attribute.value.trim();
+
+      if (name.startsWith("on")) node.removeAttribute(attribute.name);
+      if ((name === "href" || name === "src") && /^javascript:/i.test(value)) {
+        node.removeAttribute(attribute.name);
+      }
+    });
+
+    if (node.tagName === "A") {
+      node.target = "_blank";
+      node.rel = "sponsored nofollow noopener";
+    }
+
+    if (node.tagName === "IMG") {
+      node.loading = "lazy";
+      node.decoding = "async";
+      if (!node.alt) node.alt = "参考商品";
+    }
+  });
+
+  return template.innerHTML.trim();
+}
+
 function applyAffiliateLinks() {
   const links = window.HAKADORU_AFFILIATE_LINKS || {};
 
   document.querySelectorAll("[data-affiliate-slot]").forEach((element) => {
     const slot = element.getAttribute("data-affiliate-slot");
-    const url = links[slot];
+    const value = links[slot];
+    const html = getAffiliateHtml(value);
+    const url = getAffiliateUrl(value);
 
-    if (typeof url !== "string" || url.trim() === "") return;
+    if (html) {
+      const wrapper = element.classList.contains("affiliate-creative")
+        ? element
+        : document.createElement("div");
 
-    element.href = url.trim();
-    element.rel = "sponsored nofollow noopener";
+      wrapper.className = "affiliate-creative";
+      wrapper.setAttribute("data-affiliate-slot", slot);
+      wrapper.innerHTML = buildAffiliateCreative(html) || sanitizeAffiliateHtml(html);
+      attachAffiliateImageFallbacks(wrapper);
+
+      if (wrapper !== element) element.replaceWith(wrapper);
+      return;
+    }
+
+    if (url === "") return;
+
+    if (element.tagName === "A") {
+      element.href = url;
+      element.rel = "sponsored nofollow noopener";
+    }
   });
 }
 
@@ -83,14 +328,17 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!diagnosisForm) return;
 
   const result = document.querySelector("[data-result]");
+  const mode = diagnosisForm.dataset.diagnosis || "usb-c-hub";
+  const dataSet = resultSets[mode] || resultSets["usb-c-hub"];
+
   diagnosisForm.addEventListener("change", () => {
-    const type = scoreDiagnosis(diagnosisForm);
-    const data = resultData[type];
+    const type = scoreDiagnosis(diagnosisForm, mode);
+    const data = dataSet[type];
     result.innerHTML = `
       <strong>${data.title}</strong>
       <p>${data.text}</p>
     `;
-    updateRecommendation(type);
+    updateRecommendation(type, dataSet);
     applyAffiliateLinks();
   });
 });

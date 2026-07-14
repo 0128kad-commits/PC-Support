@@ -520,6 +520,79 @@ h1 {
   font-weight: 700;
 }
 
+.affiliate-creative {
+  margin-top: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 14px;
+}
+
+.affiliate-product {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.affiliate-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.affiliate-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.affiliate-copy {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.affiliate-copy strong {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--accent-strong);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.affiliate-price {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.affiliate-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 34px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .point-list li {
   margin: 4px 0;
 }
@@ -720,6 +793,14 @@ h1 {
 
   .button {
     width: 100%;
+  }
+
+  .affiliate-product {
+    grid-template-columns: 92px minmax(0, 1fr);
+  }
+
+  .affiliate-image {
+    width: 92px;
   }
 
   .brand-note {
