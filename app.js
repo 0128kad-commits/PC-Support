@@ -298,6 +298,20 @@ function updateRecommendation(type, dataSet) {
   `;
 }
 
+function resetRecommendationProgress(remaining) {
+  document.querySelectorAll("[data-recommendation-card]").forEach((card) => {
+    card.classList.remove("recommended");
+  });
+
+  const recommendedArea = document.querySelector("[data-recommendation-result]");
+  if (!recommendedArea) return;
+
+  recommendedArea.innerHTML = `
+    <strong>条件をすべて選ぶと、近いタイプがここに表示されます。</strong>
+    <p class="result-progress">あと${remaining}つです。先に見たい場合は、下の4パターンも確認できます。</p>
+  `;
+}
+
 function getAffiliateHtml(value) {
   if (typeof value === "string") {
     const trimmed = value.trim();
@@ -465,13 +479,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const result = document.querySelector("[data-result]");
   const mode = diagnosisForm.dataset.diagnosis || "usb-c-hub";
   const dataSet = resultSets[mode] || resultSets["usb-c-hub"];
+  const fieldsets = Array.from(diagnosisForm.querySelectorAll("fieldset"));
+
+  result.setAttribute("aria-live", "polite");
+
+  const recommendedArea = document.querySelector("[data-recommendation-result]");
+  if (recommendedArea) recommendedArea.setAttribute("aria-live", "polite");
 
   diagnosisForm.addEventListener("change", () => {
+    const answered = fieldsets.filter((fieldset) => fieldset.querySelector("input:checked")).length;
+    const remaining = fieldsets.length - answered;
+
+    if (remaining > 0) {
+      result.innerHTML = `
+        <strong>条件を選んでいる途中です。</strong>
+        <p class="result-progress">あと${remaining}つ選ぶと、近いタイプが表示されます。</p>
+      `;
+      resetRecommendationProgress(remaining);
+      return;
+    }
+
     const type = scoreDiagnosis(diagnosisForm, mode);
     const data = dataSet[type];
     result.innerHTML = `
       <strong>${data.title}</strong>
       <p>${data.text}</p>
+      <a class="result-link" href="#recommendations">このタイプの参考候補を確認する</a>
     `;
     updateRecommendation(type, dataSet);
     applyAffiliateLinks();

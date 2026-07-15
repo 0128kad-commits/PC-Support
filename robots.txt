@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://0128kad-commits.github.io/PC-Support/sitemap.xml
