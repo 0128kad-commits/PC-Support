@@ -139,6 +139,47 @@ h1 {
   color: #303438;
 }
 
+.start-here,
+.preflight-card {
+  border: 1px solid #d6e3de;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f4f8f6, #ffffff);
+}
+
+.start-here {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 30px;
+}
+
+.start-here-copy {
+  max-width: 760px;
+}
+
+.start-here h2,
+.preflight-card h2 {
+  margin: 0 0 8px;
+  font-size: clamp(22px, 3vw, 30px);
+}
+
+.start-here p,
+.preflight-card p {
+  margin: 0;
+}
+
+.preflight-card {
+  margin: 28px 0 0;
+  padding: 24px;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-weight: 700;
+}
+
 .quick-scan {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1144,6 +1185,12 @@ h1 {
 
   .button {
     width: 100%;
+  }
+
+  .start-here {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 24px;
   }
 
   .affiliate-product {
