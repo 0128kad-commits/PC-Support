@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ノートPCを2画面にする方法｜接続と設定を順番に確認</title>
+  <meta name="description" content="ノートPCを外部モニターにつないで2画面にする方法を解説。端子とケーブルの確認、Windows・Macの拡張設定、映らない場合の切り分けまで順番に確認できます。">
+  <link rel="canonical" href="https://0128kad-commits.github.io/PC-Support/laptop-dual-monitor.html">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="はかどる机">
+  <meta property="og:title" content="ノートPCを2画面にする方法｜接続と設定を順番に確認">
+  <meta property="og:description" content="端子の確認からWindows・Macの「拡張」設定まで、2画面化の手順を整理します。">
+  <meta property="og:url" content="https://0128kad-commits.github.io/PC-Support/laptop-dual-monitor.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"ノートPCを2画面にする方法｜接続と設定を順番に確認","description":"端子とケーブルの確認、Windows・Macの拡張設定、映らない場合の切り分けを順番に解説します。","datePublished":"2026-07-19","dateModified":"2026-07-19","inLanguage":"ja","mainEntityOfPage":"https://0128kad-commits.github.io/PC-Support/laptop-dual-monitor.html","author":{"@type":"Organization","name":"はかどる机","url":"https://0128kad-commits.github.io/PC-Support/editorial-policy.html"},"publisher":{"@type":"Organization","name":"はかどる机"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://0128kad-commits.github.io/PC-Support/"},{"@type":"ListItem","position":2,"name":"ノートPCを2画面にする方法","item":"https://0128kad-commits.github.io/PC-Support/laptop-dual-monitor.html"}]}]}
+  </script>
+  <link rel="stylesheet" href="styles.css?v=20260719-2">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">本文へ移動</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html"><span class="brand-mark">はかどる机</span><span class="brand-note">PC初心者向けガジェット選びの参考サイト</span></a>
+      <nav class="nav" aria-label="主要ナビゲーション"><a href="index.html">トップ</a><a href="#before">接続前の確認</a><a href="#settings">画面設定</a><a href="#trouble">映らない場合</a></nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><a href="index.html">トップ</a><span aria-hidden="true">/</span><span>ノートPCを2画面にする方法</span></nav>
+      <p class="eyebrow">外部モニター接続</p>
+      <h1>ノートPCを2画面にする方法</h1>
+      <p class="lead">「つなぐ」「PCに認識させる」「表示を拡張する」の3段階に分ければ、必要な物と映らない原因を整理できます。</p>
+      <div class="article-meta"><span>運営・編集: はかどる机</span><span>公開・最終確認: 2026年7月19日</span><a href="editorial-policy.html">編集方針</a></div>
+      <div class="key-answer"><strong>ケーブルを買う前にPCの映像出力を確認します</strong><p>HDMI端子ならHDMIケーブル、映像出力対応のUSB-CならUSB-Cケーブルや変換アダプターを使えます。USB-Cは端子の形だけでは映像対応か判断できません。</p></div>
+    </section>
+
+    <section class="section compact">
+      <div class="article-layout">
+        <article>
+          <section id="before">
+            <div class="section-title"><h2>接続前に確認する3項目</h2><p>PC、モニター、ケーブルの条件が一つでも合わないと表示できません。</p></div>
+            <div class="criteria-grid">
+              <article class="criteria-card"><h3>1. PCの出力端子</h3><dl class="signal-list"><div><dt>HDMI</dt><dd>形が合うケーブルで直接接続しやすい</dd></div><div><dt>USB-C</dt><dd>DisplayPort Alt Mode、Thunderbolt、USB4など映像対応の表記を確認</dd></div></dl></article>
+              <article class="criteria-card"><h3>2. モニターの入力端子</h3><dl class="signal-list"><div><dt>見る</dt><dd>HDMI / DisplayPort / USB-C</dd></div><div><dt>注意</dt><dd>複数入力がある場合は、モニター側で接続先を選ぶ</dd></div></dl></article>
+              <article class="criteria-card"><h3>3. ケーブルの機能</h3><dl class="signal-list"><div><dt>見る</dt><dd>映像伝送への対応、必要な解像度と更新頻度</dd></div><div><dt>注意</dt><dd>充電専用USB-Cケーブルでは映像が出ない</dd></div></dl></article>
+              <article class="criteria-card"><h3>外部画面の上限</h3><dl class="signal-list"><div><dt>見る</dt><dd>PC仕様表の「外部ディスプレイ」「Display Support」</dd></div><div><dt>注意</dt><dd>接続できる台数はPCの機種や構成で異なる</dd></div></dl></article>
+            </div>
+            <p class="preflight-card">USB-Cの映像対応が分からない場合は、先に<a href="usb-c-display-output.html">USB-C映像出力の確認手順</a>で型番と仕様表の見方を確認してください。</p>
+          </section>
+
+          <section class="content-block" id="connect">
+            <div class="section-title"><h2>接続する</h2><p>電源と入力先を確認し、できるだけ単純な構成から試します。</p></div>
+            <ol class="verification-steps">
+              <li><span>1</span><div><strong>モニターの電源を入れる</strong><p>電源ケーブルを接続し、入力切替を使う端子に合わせます。</p></div></li>
+              <li><span>2</span><div><strong>PCと直接つなぐ</strong><p>最初はハブを挟まず、PCとモニターを対応ケーブルで直接接続します。</p></div></li>
+              <li><span>3</span><div><strong>画面を検出する</strong><p>PCの画面設定を開き、外部モニターが認識されているか確認します。</p></div></li>
+            </ol>
+          </section>
+
+          <section class="content-block" id="settings">
+            <div class="section-title"><h2>表示を「拡張」に設定する</h2><p>同じ画面を映す「複製」ではなく、作業領域を広げる場合は「拡張」を選びます。</p></div>
+            <div class="check-grid">
+              <div><strong>Windows 11</strong><p>「設定」→「システム」→「ディスプレイ」で画面を検出し、「表示画面を拡張する」を選びます。ショートカットはWindowsキー＋Pです。</p></div>
+              <div><strong>macOS</strong><p>「システム設定」→「ディスプレイ」で外部画面を選び、主画面のミラーリングではなく拡張として使う設定を選びます。</p></div>
+              <div><strong>並び順</strong><p>設定画面のディスプレイを、実際の左右・上下と同じ位置へドラッグします。</p></div>
+              <div><strong>文字の大きさ</strong><p>解像度や拡大率を画面ごとに調整し、無理なく読める大きさにします。</p></div>
+            </div>
+          </section>
+
+          <section class="content-block" id="trouble">
+            <div class="section-title"><h2>映らない場合の切り分け</h2><p>道具を買い直す前に、上から一つずつ確認します。</p></div>
+            <ol class="check-list">
+              <li>モニターの入力先が、挿した端子と一致しているか確認する</li>
+              <li>ケーブルを挿し直し、別の対応ケーブルまたは端子で試す</li>
+              <li>ハブや変換アダプターを外し、PCとモニターを直接つなぐ</li>
+              <li>Windowsは「ディスプレイの検出」、Macはディスプレイ設定を開いて再確認する</li>
+              <li>PC仕様表で映像出力、対応台数、解像度の上限を確認する</li>
+            </ol>
+            <div class="common-mistakes"><h3>よくある原因</h3><ul class="check-list"><li>USB-C端子が映像出力に対応していない</li><li>USB-Cケーブルが充電・データ用で、映像伝送に対応していない</li><li>PC、ハブ、ケーブルのどこかが希望する解像度や更新頻度に対応していない</li><li>「複製」が選ばれ、2画面分の作業領域になっていない</li></ul></div>
+          </section>
+
+          <section class="content-block faq-section">
+            <div class="section-title"><h2>よくある質問</h2></div>
+            <div class="faq-list">
+              <details><summary>HDMIとUSB-Cはどちらを使えばよいですか？</summary><p>PCとモニターの両方にHDMIがあれば、まずHDMIで直接接続すると切り分けが簡単です。USB-C一本で映像と給電をまとめたい場合は、双方の映像・給電対応を確認します。</p></details>
+              <details><summary>ハブを使わないと2画面にできませんか？</summary><p>PCとモニターに合う端子があれば直接接続できます。端子が足りない場合や、給電・LAN・USB機器もまとめたい場合にハブを検討します。</p></details>
+              <details><summary>ノートPCを閉じても使えますか？</summary><p>機種とOSの設定、外部電源、キーボードやマウスの有無など条件があります。PCメーカーの説明を確認し、放熱を妨げない置き方にしてください。</p></details>
+            </div>
+          </section>
+
+          <section class="content-block" id="sources">
+            <div class="section-title"><h2>確認に使用した公式情報</h2></div>
+            <ul class="source-list">
+              <li><a href="https://support.microsoft.com/en-us/windows/hardware/display-graphics/how-to-use-multiple-monitors-in-windows" target="_blank" rel="noopener">Microsoft Support「How to use multiple monitors in Windows」</a><small>検出、並べ替え、複製・拡張の設定</small></li>
+              <li><a href="https://support.apple.com/guide/mac-help/connect-an-external-display-mchl7c7ebe08/mac" target="_blank" rel="noopener">Apple Support「Connect one or more external displays with your Mac」</a><small>端子、対応台数、ケーブル、ディスプレイ設定の確認</small></li>
+            </ul>
+          </section>
+        </article>
+
+        <aside class="toc" aria-label="記事内ナビゲーション"><h2>この記事の中身</h2><a href="#before">接続前の確認</a><a href="#connect">接続手順</a><a href="#settings">画面設定</a><a href="#trouble">映らない場合</a><a href="#sources">公式情報</a></aside>
+      </div>
+    </section>
+
+    <section class="section compact related-section" aria-labelledby="related-guides">
+          <div class="section-title"><h2 id="related-guides">関連ガイド</h2><p>接続方法が決まった後で、必要な道具だけを選びます。</p></div>
+      <div class="related-grid">
+        <a class="related-link" href="usb-c-display-output.html"><span>USB-Cが映像対応か調べる</span><strong>USB-C映像出力の確認手順</strong></a>
+        <a class="related-link" href="usb-c-hub.html"><span>端子をまとめる</span><strong>USB-Cハブの選び方</strong></a>
+        <a class="related-link" href="mobile-monitor.html"><span>持ち運べる画面を選ぶ</span><strong>モバイルモニターの選び方</strong></a>
+        <a class="related-link" href="monitor-position-guide.html"><span>つないだ後に調整する</span><strong>モニターの高さ・距離・位置</strong></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><strong>情報確認日: 2026年7月19日</strong><p>対応台数や解像度はPC・モニター・ケーブルの組み合わせで変わります。各メーカー仕様を優先してください。</p><div class="footer-links"><a href="index.html">トップ</a><a href="editorial-policy.html">選定・編集方針</a></div></div></footer>
+</body>
+</html>
